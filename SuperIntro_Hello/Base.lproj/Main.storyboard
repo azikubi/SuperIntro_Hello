@@ -26,6 +26,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pom-BR-aPB">
                                 <rect key="frame" x="277" y="285" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="azAppSaySomething" destination="BYZ-38-t0r" eventType="touchUpInside" id="tKT-xw-vuI"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -36,6 +39,9 @@
                             <constraint firstItem="Pom-BR-aPB" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="nPC-bJ-2wp"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="azAppLabel" destination="U9e-mV-QAr" id="d0P-YN-xbN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

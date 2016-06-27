@@ -12,11 +12,20 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var azAppLabel: UILabel!
     @IBAction func azAppSaySomething() {
+        switch azAppLabel.text! {
+        case "Label": azAppLabel.text = "こんちわ！"
+        case "こんちわ！": azAppLabel.text = "Hello World!"
+        case "Hello World!": azAppLabel.text = "Hey, what's up?"
+        case "Hey, what's up?": azAppLabel.text = "どったの？"
+        default:      azAppLabel.text = "Label"
+        }
+        /*
         if azAppLabel.text == "Label" { azAppLabel.text = "こんちわ！" }
         else if azAppLabel.text == "こんちわ！" { azAppLabel.text = "Hello World!" }
         else if azAppLabel.text == "Hello World!" { azAppLabel.text = "Hey, what's up?" }
         else if azAppLabel.text == "Hey, what's up?" { azAppLabel.text = "どったの？" }
         else { azAppLabel.text = "Label" }
+        */
     }
     override func viewDidLoad() {
         super.viewDidLoad()

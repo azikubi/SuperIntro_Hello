@@ -20,7 +20,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U9e-mV-QAr">
                                 <rect key="frame" x="279" y="105" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pom-BR-aPB">
@@ -30,17 +30,29 @@
                                     <action selector="azAppSaySomething" destination="BYZ-38-t0r" eventType="touchUpInside" id="tKT-xw-vuI"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Device" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="atI-bR-7dJ">
+                                <rect key="frame" x="150" y="433" width="300" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="aEw-gn-4YF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="U9e-mV-QAr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="85" id="2a5-IV-qd8"/>
                             <constraint firstItem="U9e-mV-QAr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Kzn-RK-jzO"/>
+                            <constraint firstItem="atI-bR-7dJ" firstAttribute="centerX" secondItem="Pom-BR-aPB" secondAttribute="centerX" id="dRi-J5-wN2"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="atI-bR-7dJ" secondAttribute="bottom" constant="146" id="dXu-QL-Ehg"/>
                             <constraint firstItem="U9e-mV-QAr" firstAttribute="centerX" secondItem="Pom-BR-aPB" secondAttribute="centerX" id="eJQ-zn-Qdy"/>
                             <constraint firstItem="Pom-BR-aPB" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="nPC-bJ-2wp"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="azAppLabel" destination="U9e-mV-QAr" id="d0P-YN-xbN"/>
+                        <outlet property="azDeviceLabel" destination="atI-bR-7dJ" id="EZi-ev-km8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

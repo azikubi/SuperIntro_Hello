@@ -9,8 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    let deviceName = UIDevice.currentDevice().modelName
+    let deviceVersion = UIDevice.currentDevice().systemVersion
     @IBOutlet weak var azAppLabel: UILabel!
+    @IBOutlet weak var azDeviceLabel: UILabel!
     @IBAction func azAppSaySomething() {
         //
         switch azAppLabel.text! {   // ラベルの｢.text｣プロパティは、値無しの｢nil｣を許す、オプショナルString型！！！
@@ -19,6 +21,7 @@ class ViewController: UIViewController {
         case "Hello World!":    azAppLabel.text = "Hey, what's up?"     // この行のコメントは先頭の面も行間幅も合っていない！
         case "Hey, what's up?": azAppLabel.text = "どったの？"           // この行の行間幅が合っていない！
         default:                azAppLabel.text = "Label"               // この行のコメントは先頭の面も行間幅も合っていない！
+                                    azDeviceLabel.text = "\(deviceName)(\(deviceVersion))"
             // 行内に日本語文字(UTF-16??)が入ると、行間が2ポイントほど広がり、タブが合わなくなる。
             // Swiftの日本語文字は、等幅文字じゃないの？？　何か変！！！　　Apple！　頑張れ！！
         }
@@ -34,12 +37,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
 

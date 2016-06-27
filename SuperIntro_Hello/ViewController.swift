@@ -12,12 +12,15 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var azAppLabel: UILabel!
     @IBAction func azAppSaySomething() {
-        switch azAppLabel.text! {
-        case "Label": azAppLabel.text = "こんちわ！"
-        case "こんちわ！": azAppLabel.text = "Hello World!"
-        case "Hello World!": azAppLabel.text = "Hey, what's up?"
-        case "Hey, what's up?": azAppLabel.text = "どったの？"
-        default:      azAppLabel.text = "Label"
+        //
+        switch azAppLabel.text! {   // ラベルの｢.text｣プロパティは、値無しの｢nil｣を許す、オプショナルString型！！！
+        case "Label":           azAppLabel.text = "こんちわ！"           // この行の行間幅が合っていない！
+        case "こんちわ！":       azAppLabel.text = "Hello World!"        // この行のazAppLabelは先頭の面も行間幅も合っていない！
+        case "Hello World!":    azAppLabel.text = "Hey, what's up?"     // この行のコメントは先頭の面も行間幅も合っていない！
+        case "Hey, what's up?": azAppLabel.text = "どったの？"           // この行の行間幅が合っていない！
+        default:                azAppLabel.text = "Label"               // この行のコメントは先頭の面も行間幅も合っていない！
+            // 行内に日本語文字(UTF-16??)が入ると、行間が2ポイントほど広がり、タブが合わなくなる。
+            // Swiftの日本語文字は、等幅文字じゃないの？？　何か変！！！　　Apple！　頑張れ！！
         }
         /*
         if azAppLabel.text == "Label" { azAppLabel.text = "こんちわ！" }

@@ -65,7 +65,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
         UIDevice.currentDevice().endGeneratingDeviceOrientationNotifications()
     }
-    override func viewWillDisappear(animated: Bool) {   // ビューが現れた！！
+    override func viewWillDisappear(animated: Bool) {   // ビューが消えるぅ！！
         UIDevice.currentDevice().endGeneratingDeviceOrientationNotifications()
     }
     override func viewDidAppear(animated: Bool) {   // ビューが現れた！！

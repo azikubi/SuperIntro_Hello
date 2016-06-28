@@ -13,6 +13,28 @@ class ViewController: UIViewController {
     let deviceVersion = UIDevice.currentDevice().systemVersion
     @IBOutlet weak var azAppLabel: UILabel!
     @IBOutlet weak var azDeviceLabel: UILabel!
+/*
+    override func canBecomeFirstResponder() -> Bool {
+        return true
+    }   // シェイク動作検知準備完了！（シェイク動作のファースト･レスポンダになる）
+    override func motionBegan(motion: UIEventSubtype, withEvent event: UIEvent?) {
+        if event?.type == UIEventType.Motion && event?.subtype == UIEventSubtype.MotionShake {
+            // シェイク動作始り時の処理（軽く振っただけでは、ここしか反応しないそうだ！！）
+            azAppLabel.text = "Shaked App Label"
+            azDeviceLabel.text = "Shaked Dev Label"
+        }
+    }
+    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
+        if event?.type == UIEventType.Motion && event?.subtype == UIEventSubtype.MotionShake {
+            // シェイク動作終了時の処理
+        }
+    }
+    override func motionCancelled(motion: UIEventSubtype, withEvent event: UIEvent?) {
+        if event?.type == UIEventType.Motion && event?.subtype == UIEventSubtype.MotionShake {
+            // シェイクキャンセル時の処理
+        }
+    }
+ */
     @IBAction func azAppSaySomething() {
         //
         switch azAppLabel.text! {   // ラベルの｢.text｣プロパティは、値無しの｢nil｣を許す、オプショナルString型！！！
@@ -41,6 +63,19 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        UIDevice.currentDevice().endGeneratingDeviceOrientationNotifications()
+    }
+    override func viewWillDisappear(animated: Bool) {   // ビューが現れた！！
+        UIDevice.currentDevice().endGeneratingDeviceOrientationNotifications()
+    }
+    override func viewDidAppear(animated: Bool) {   // ビューが現れた！！
+        // 通知センター(NSNotificationCenter)へ、向き変化を通知せよ(UIDeviceOrientationDidChangeNotification)と登録 (コールバック関数はonOrientationChange())
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.onOrientationChange(_:)), name: UIDeviceOrientationDidChangeNotification, object: nil)
+        UIDevice.currentDevice().beginGeneratingDeviceOrientationNotifications()    // 通知を開始せよ！
+    }
+    func onOrientationChange(notification: NSNotification) {    // iOS端末の向きが変わると呼ばれる関数
+        azAppLabel.text = "Shaked Application Label"
+        azDeviceLabel.text = "Shaked Device Label"
     }
 }
 
